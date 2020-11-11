@@ -1,6 +1,4 @@
-
 @extends('site.app')
-
 @section('content')
     <div class="container">
         <div class="row">
@@ -18,7 +16,7 @@
                                     <input type="text" name="qty" id="qty" value={{ $product['qty']}}>
                                     <a href="#" class="btn btn-secondary btn-sm">Change</a>
 
-                                    <form action="{{ route('product.remove', $product['id'] )}}" method="post">
+                                    <form action="{{ route('cart.remove', $product['id'] )}}" method="post">
                                         @csrf
                                         @method('delete')
                                         <button type="submit" class="btn btn-danger btn-sm ml-4 float-right" style="margin-top: -30px;">Remove</button>

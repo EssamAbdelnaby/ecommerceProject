@@ -34,6 +34,7 @@ Route::get('/', 'Site\SiteController@index')->name('site.home');
 
 Route::get('/addToCart/{product}', 'Site\CartController@addToCart')->name('cart.add');
 Route::get('/shopping-cart', 'Site\CartController@showCart')->name('cart.show');
+Route::delete('/products/{product}', 'Site\CartController@destroy')->name('cart.remove');
 Route::get('/checkout/{amount}', 'Site\CartController@checkout')->name('cart.checkout')->middleware('auth');
 
 

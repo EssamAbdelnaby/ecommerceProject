@@ -26,16 +26,32 @@ class CartController extends Controller
     public function showCart() {
 
         if (session()->has('cart')) {
-            $cart = new Cart(session()->get('cart'));
+            $cart = new Cart (session()->get('cart'));
         } else {
             $cart = null;
         }
-
+        //dd($cart);
         return view('site.cart.show', compact('cart'));
     }
 
     public function checkout($amount) {
 
-        return view('cart.checkout',compact('amount'));
+        return view('site.cart.checkout',compact('amount'));
     }
+
+    public function destroy(Product $product)
+    {
+        $cart = new Cart( session()->get('cart'));
+        $cart->remove($product->id);
+
+        if( $cart->totalQty <= 0 ) {
+            session()->forget('cart');
+        } else {
+            session()->put('cart', $cart);
+        }
+
+        return redirect()->route('cart.show')->with('success', 'Product was removed');
+
+    }
+
 }
