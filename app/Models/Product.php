@@ -12,7 +12,7 @@ class Product extends Model
 
 
     protected $fillable = [
-         'name', 'slug', 'description', 'quantity', 'price','status','category_id','image'
+         'name', 'slug', 'sku' , 'description', 'quantity', 'price','status','category_id', 'brand_id', 'image'
     ];
     public function setNameAttribute($value)
     {

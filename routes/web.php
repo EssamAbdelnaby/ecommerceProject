@@ -32,6 +32,11 @@ Route::group(['middleware' => 'Admin','prefix'  =>  'admin'], function () {
 });
 Route::get('/', 'Site\SiteController@index')->name('site.home');
 
+Route::get('/addToCart/{product}', 'Site\CartController@addToCart')->name('cart.add');
+Route::get('/shopping-cart', 'Site\CartController@showCart')->name('cart.show');
+Route::get('/checkout/{amount}', 'Site\CartController@checkout')->name('cart.checkout')->middleware('auth');
+
+
 Route::get('/category/{slug}', 'Site\SiteController@show')->name('category.show');
 Route::get('/brand/{slug}', 'Site\SiteController@show')->name('brand.show');
 Route::get('/product/{slug}', 'Site\SiteController@showProduct')->name('product.show');

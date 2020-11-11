@@ -20,6 +20,14 @@
                             <div class="price-wrap h5">
                                 <span class="price-new">{{$product->price}}</span>
                             </div>
+                            <div class="card-footer" style="background-color: white;">
+                                <div class="row">
+                                    <button class="btn btn-secondary btn-sm" class="tooltip-test" title="add to cart" onclick="window.location.href='{{ route("cart.add",$product)}}';">
+                                        <i class="fa fa-shopping-cart"></i> add to cart
+                                    </button>
+
+                                </div>
+                            </div>
                             <!-- price-wrap.// -->
                         </div>
                         <!-- bottom-wrap.// -->
